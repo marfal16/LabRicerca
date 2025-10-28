@@ -1,8 +1,4 @@
-
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import './AllPublications.css';
 
 
@@ -648,6 +644,7 @@ const allPublications = [
 
 
 export default function AllPublications() {
+
   const publicationsByYear = allPublications.reduce((acc, pub) => {
     if (!acc[pub.year]) acc[pub.year] = [];
     acc[pub.year].push(pub);
@@ -664,7 +661,6 @@ export default function AllPublications() {
 
   return (
     <div>
-      <Navbar />
       <section className="sectionpub">
         <h2>All Publications</h2>
 
@@ -702,7 +698,7 @@ export default function AllPublications() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Link
+                      View Publication
                     </a>{" "}
                     | DOI: {pub.doi}
                   </p>
@@ -712,7 +708,6 @@ export default function AllPublications() {
           </div>
         ))}
       </section>
-      <Footer />
     </div>
   );
 }

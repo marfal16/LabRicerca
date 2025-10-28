@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import AllPublications from './pages/AllPublications';
 import member1 from "./assets/team/member1.jpeg";
@@ -8,7 +9,11 @@ import member4 from "./assets/team/member4.jpeg";
 import member5 from "./assets/team/member5.jpeg";
 import member6 from "./assets/team/member6.jpeg";
 import member7 from "./assets/team/member7.jpeg";
-
+import pub1 from "./assets/pub1.jpg";
+import sfondo from "./assets/sfondo.jpg";
+import Navbar from "./components/Navbar"; 
+import Footer from "./components/Footer";
+import ScrollToTop from './components/ScrollToTop';
 
 const latestPublications = [
   {
@@ -16,7 +21,7 @@ const latestPublications = [
     year: 2025,
     authors: "Petescia, Alessia; Benevento, Gerardo; Falanga, Anna; Macaro, Alessandro; Malandrino, Delfina; Montefusco, Alberto; Sorrentino, Rosalinda; Zaccagnino, Rocco",
     url: "https://hdl.handle.net/11386/4920232",
-    doi: "10.1186/s12859-025-06257-3"
+    doi: "10.1186/s12859-025-06257-3",
   },
   {
     title: "Conventional Chemotherapy and Inflammation: What Is the Role of the Inflammasome in the Tumor Microenvironment?",
@@ -36,19 +41,19 @@ const latestPublications = [
 
 // --- Dati Progetti Aggiornati ---
 const researchProjects = [
-  "IDENTIFICATION OF AIM2 AS A NEW DRUG TARGET IN LUNG CANCER",
-  "FIBROFARMA – TRANSCRIPTOMIC AND PROTEOMIC PROFILING OF PATIENTS WITH IDIOPATHIC PULMONARY FIBROSIS AND DEVELOPMENT OF SMALL MOLECULES AND INNOVATIVE PHARMACEUTICAL FORMULATIONS",
-  "SPATIAL LUNG – DIGITAL PLATFORM FOR SPATIAL BIOLOGY ON LUNG TISSUES: BIOBANK AND TRANSCRIPTOMIC AND PROTEOMIC ANALYSIS DATABASE",
-  "UNCOVERING NOVEL TARGETS AND PATHWAYS TO ENHANCE THE EFFICACY OF COMBINATION IMMUNOTHERAPY FOR LUNG CANCER",
-  "TISSUE MICROBIOTA REMODELING DURING LUNG CANCER PROGRESSION: A FUEL FOR IMMUNOSUPPRESSION VIA TREGS INDUCTION",
-  "A BASKET STUDY APPROACH IN PRECLINICAL DRUG DEVELOPMENT: THE MTOR PATHWAY IN GLIOBLASTOMA MULTIFORME (GBM) AND IN NON-SMALL-CELL-LUNG-CANCER (NSCLC) TUMOR MODELS."
+  "Identification of aim2 as a new drug target in lung cancer",
+  "Fibrofarma – transcriptomic and proteomic profiling of patients with idiopathic pulmonary fibrosis and development of small molecules and innovative pharmaceutical formulations",
+  "Spatial lung – digital platform for spatial biology on lung tissues: biobank and transcriptomic and proteomic analysis database",
+  "Uncovering novel targets and pathways to enhance the efficacy of combination immunotherapy for lung cancer",
+  "Tissue microbiota remodeling during lung cancer progression: a fuel for immunosuppression via tregs induction",
+  "A basket study approach in preclinical drug development: the mtor pathway in glioblastoma multiforme (gbm) and in non-small-cell-lung-cancer (nsclc) tumor models."
 ];
 //
 
 const teamMembers = [
   {
     name: "Rosalinda Sorrentino",
-    role: "Group Leader since 2023 — PhD, Associate Professor of Pharmacology and Therapy",
+    role: "Group Leader since 2016 — PhD, Associate Professor of Pharmacology and Therapy",
     photo: member1
   },
   {
@@ -83,35 +88,31 @@ const teamMembers = [
   }
 ];
 
-
+// Definisci lo stile
+const heroStyle = {
+  backgroundImage: `url(${pub1})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  minHeight: '80vh', 
+};
 
 function HomePage() {
 
   return (
     <div className="App">
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <div className="nav-logo">RS Lab</div>
-        <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
 
       {/* HERO */}
-      <section id="home" className="hero">
+      <section id="home" className="hero" style={heroStyle}>
         <div className="hero-content">
           <h1>Rosalinda Sorrentino Lab</h1>
           <p>
             Un centro dedicato alla ricerca, all’innovazione e alla formazione,
             con collaborazioni accademiche e industriali di livello internazionale.
           </p>
-          <a href="#about" className="btn-primary">Scopri di più</a>
-        </div>
+         </div>
+          <a href="#about" className="btn-scroll">Scopri di più </a>
+
       </section>
 
       {/* HOME */}
@@ -136,10 +137,10 @@ function HomePage() {
 
       {/* TEAM */}
       <section id="team" className="section light">
-        <h2>Meet our team</h2>
+        <h2>Meet our Team</h2>
           <p>
-            Our laboratory promotes interdisciplinary research involving researchers, PhD students, university interns, and both academic and private partners worldwide. 
-            Our goal is to create innovation and knowledge with a real-world impact.
+            Our laboratory promotes interdisciplinary research involving researchers, PhD students, university students, and both academic and private partners worldwide. 
+            Our goal is to create innovation and knowledge in Lung Cancer Immunoncology and therapy with a real-world impact.
           </p>
           <div className="team-grid">
             {teamMembers.map((member, index) => (
@@ -159,68 +160,122 @@ function HomePage() {
           {/* PROJECTS */}
           {researchProjects.map((projectTitle, index) => (
             <div className="project" key={index}>
-              {/* Usiamo <h3> per il titolo, come negli esempi precedenti */}
-              <h3>{projectTitle}</h3> 
-              {/* Potresti aggiungere qui una <p> con una breve descrizione se l'avessi */}
+              <p><strong>{projectTitle}</strong> </p> 
             </div>
           ))}
         </div>
       </section>
     
-    {/* Pubblicazioni */}
-      <section id="publications" className="section light">
-        <h2>Publications</h2>
-        <div className="projects">
-          {latestPublications.map((pub, idx) => (
-            <div className="project" key={idx}>
-              <h3>{pub.title}</h3>
-              <p><strong>Year:</strong> {pub.year}</p>
-              <p><strong>Authors:</strong> {pub.authors}</p>
-              <p>
-                <a href={pub.url} target="_blank" rel="noopener noreferrer">Link</a> | DOI: {pub.doi}
-              </p>
-            </div>
-          ))}
-        </div>
-        <Link to="/all-publications" className="btn-primary" style={{ display: "inline-block" }}>
-          All Publications
-        </Link>
-      </section>
+{/* PUBLICATIONS */}
+<section id="publications" className="section light">
+  <h2>Publications</h2>
 
-        {/* CONTACT */}
-        <section id="contact" className="section contact">
-          <h2>Contact</h2>
-          <p>We are located at Department of Pharmacy, University of Salerno, Italy</p>
-          <p>Fisciano Campus, Building F, Fourth Floor, Room 068 (U.FSTEC-07.P04.068)</p>
-          <p>Email: <a href="mailto:rsorrentino@unisa.it">rsorrentino@unisa.it</a></p>
+  <div className="projects">
+    {latestPublications.map((pub, idx) => (
+      <div className="project" key={idx}>
+        {/* immagine opzionale */}
+        {pub.image && (
+          <div className="project-image">
+            <img src={pub.image} alt={pub.title} />
+          </div>
+        )}
+
+        <div className="project-content">
+          <h3>{pub.title}</h3>
+          <p><strong>Year:</strong> {pub.year}</p>
+          <p><strong>Authors:</strong> {pub.authors}</p>
           <p>
-            LinkedIn:{" "}
-            <a 
-              href="https://www.linkedin.com/in/rosalinda-sorrentino-5780656b" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Rosalinda Sorrentino
+            <a href={pub.url} target="_blank" rel="noopener noreferrer">
+              View Publication
             </a>
+            {pub.doi && <> | DOI: {pub.doi}</>}
           </p>
-        </section>
+        </div>
+      </div>
+    ))}
+  </div>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <p>© 2025 RS Lab — All rights reserved.</p>
-      </footer>
+  <Link 
+    to="/all-publications" 
+    className="btn-primary" 
+    style={{ display: "inline-block", marginTop: "2rem" }}
+  >
+    View All Publications →
+  </Link>
+</section>
+
+
+<section id="contact" className="section contact">
+  <h2>Contact</h2>
+  <div className="contact-container">
+    <div className="contact-info">
+  <div className="info-block">
+    <h4>Location</h4>
+    <p>
+      Department of Pharmacy, University of Salerno<br />
+      Fisciano Campus, Building F, Fourth Floor<br />
+      Room 068 (U.FSTEC-07.P04.068)
+    </p>
+  </div>
+
+  <div className="info-block">
+    <h4>Email</h4>
+    <a href="mailto:rsorrentino@unisa.it">rsorrentino@unisa.it</a>
+  </div>
+
+  <div className="info-block">
+    <h4>LinkedIn</h4>
+    <a
+      href="https://www.linkedin.com/in/rosalinda-sorrentino-5780656b"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Rosalinda Sorrentino
+    </a>
+  </div>
+</div>
+
+    <form
+      className="contact-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const form = e.target;
+        const subject = encodeURIComponent(form.subject.value);
+        const body = encodeURIComponent(form.message.value);
+        window.location.href = `mailto:rsorrentino@unisa.it?subject=${subject}&body=${body}`;
+      }}
+    >
+      <h3>Send us a message</h3>
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" placeholder="Your Message" required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
     </div>
   );
 }
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/all-publications" element={<AllPublications />} />
-    </Routes>
+    <div className="App">
+      {/* NAVBAR: Mantenuto fisso */}
+      <Navbar /> 
+      
+      {/* SCROLL E ROUTER: Controllano solo il contenuto che cambia */}
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/all-publications" element={<AllPublications />} />
+      </Routes>
+      
+      {/* FOOTER: Mantenuto fisso */}
+      <Footer /> 
+    </div>
   );
 }
 
 export default App;
+
 

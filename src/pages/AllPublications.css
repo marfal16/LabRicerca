@@ -1,80 +1,20 @@
 /* --- ALL PUBLICATIONS PAGE --- */
-
 .sectionpub {
-  padding: 3rem 2rem;
-  max-width: 900px;
+  padding: 4rem 2rem;
+  max-width: 950px;
   margin: 0 auto;
+  background-color: #f7f9fb;
 }
 
 .sectionpub h2 {
   text-align: center;
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #0077b6;
+  font-size: 2.2rem;
+  color: #002b66;
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid #002b66;
   display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-.publication-year {
-  margin-top: 2rem;
-}
-
-.publication-year h3 {
-  font-size: 1.5rem;
-  color: #0077b6;
-  margin-bottom: 1.2rem;
-  border-left: 4px solid #0077b6;
-  padding-left: 0.6rem;
-}
-
-.publications-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.publication-item {
-  background: #f9f9f9;
-  border-left: 4px solid #0077b6;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1.2rem;
-  border-radius: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.publication-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.publication-item strong {
-  font-size: 1.1rem;
-  color: #222;
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.publication-item p {
-  margin: 0.3rem 0;
-  color: #444;
-  line-height: 1.5;
-}
-
-.publication-item a {
-  color: #0077b6;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.publication-item a:hover {
-  text-decoration: underline;
-}
-
-.publication-meta {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 0.3rem;
+  padding-bottom: 0.4rem;
+  letter-spacing: 0.5px;
 }
 
 /* --- FILTRO ANNI --- */
@@ -87,43 +27,118 @@
 }
 
 .year-filter button {
-  background: #f2f2f2;
-  border: 2px solid #0077b6;
-  color: #0077b6;
+  background: transparent;
+  border: 2px solid #002b66;
+  color: #002b66;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
 }
 
 .year-filter button:hover {
-  background: #0077b6;
+  background: #002b66;
   color: #fff;
 }
 
 .year-filter button.active {
-  background: #0077b6;
+  background: #0a0f2e;
   color: #fff;
+  border-color: #0a0f2e;
   transform: scale(1.05);
 }
 
+/* --- LISTA PUBBLICAZIONI --- */
+.publication-year {
+  margin-top: 2.5rem;
+}
 
-/* Mobile responsive */
+.publication-year h3 {
+  font-size: 1.5rem;
+  color: #0a0f2e;
+  margin-bottom: 1.2rem;
+
+  padding-left: 0.6rem;
+  font-weight: 700;
+}
+
+.publications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.publication-item {
+  background: #ffffff;
+  border-left: 4px solid #002b66;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.publication-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-left-color: #ff7f50; /* solo accento leggero sull’hover */
+}
+
+.publication-item strong {
+  font-size: 1.15rem;
+  color: #0a0f2e;
+  display: block;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.publication-item p {
+  margin: 0.3rem 0;
+  color: #333;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.publication-item a {
+  color: #002b66;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.publication-item a:hover {
+  color: #ff7f50; /* accento solo qui */
+  text-decoration: underline;
+}
+
+.publication-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 600px) {
-  .section {
-    padding: 2rem 1rem;
+  .sectionpub {
+    padding: 2.5rem 1rem;
+  }
+
+  .sectionpub h2 {
+    font-size: 1.8rem;
   }
 
   .publication-item {
-    padding: 0.8rem 1rem;
-  }
-
-  .section h2 {
-    font-size: 1.6rem;
+    padding: 1rem;
   }
 
   .publication-year h3 {
     font-size: 1.3rem;
+  }
+
+  .year-filter button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
 }
