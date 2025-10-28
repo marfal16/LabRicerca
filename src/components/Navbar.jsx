@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import logo from '../assets/logo.png';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +27,8 @@ export default function Navbar() {
 
   return (
     <nav className="navbar" ref={navRef}>
-      <div className="nav-logo">RS Lab</div>
+      <div className="nav-logo"><img src={logo} alt="RS Lab Logo" className="navbar-logo-icon" /> 
+      RS Lab</div>
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
         <li><a href="#home" onClick={() => handleLinkClick("home")}>Home</a></li>
         <li><a href="#about" onClick={() => handleLinkClick("about")}>About</a></li>

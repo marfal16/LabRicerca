@@ -52,6 +52,21 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
+    display: flex; 
+  align-items: center; /* Centra verticalmente logo e testo */
+  gap: 0.5rem; /* Aggiunge un piccolo spazio tra logo e testo */
+  font-size: 1.5rem; /* Stile del testo "RS Lab" */
+  font-weight: bold;
+    background-color: transparent;
+}
+
+.navbar-logo-icon {
+  /* Imposta una dimensione fissa e piccola per il logo */
+  width: 42px; /* Larghezza adeguata per un logo in navbar */
+  height: 42px; /* Altezza adeguata per un logo in navbar */
+  background-color: transparent;
+  /* Assicura che l'immagine si adatti bene */
+  object-fit: contain; 
 }
 
 .nav-links {
@@ -201,6 +216,8 @@ body {
   padding: 2rem;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  padding: 0
 }
 
 .card:hover {
@@ -208,6 +225,32 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
+.card p {
+
+  padding-top: 0;
+  color: #333333; /* Un nero molto scuro per un ottimo contrasto */
+}
+
+.card h3 {
+  padding-top: 1.5rem; /* Aggiungi un po' di spazio tra l'immagine e il titolo */
+  margin-bottom: 0.5rem;
+}
+
+.card-image {
+  /* Definisci un'altezza fissa o limitata per l'area dell'immagine */
+  height: 140px; 
+  overflow: hidden;
+  /* Arrotonda solo gli angoli superiori */
+  border-radius: 12px 12px 0 0; 
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  /* Assicura che l'immagine copra l'area senza deformarsi */
+  object-fit: cover; 
+  display: block;
+}
 /* --- PROJECTS SECTION --- */
 #projects {
   background: linear-gradient(135deg, #f8fafc, #eef3f8);
@@ -254,10 +297,12 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  user-select: text !important; /* Forza la selezione del testo */
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
 }
 
 .project::before {
-  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(0, 43, 102, 0.05), rgba(255, 127, 80, 0.05));
@@ -415,6 +460,22 @@ body {
   color: #ffb184;
 }
 
+/* --- LAYOUT LOCATION --- */
+
+.location-support-image {
+  /* Larghezza massima all'interno del blocco info */
+  width: 100%; 
+  max-height: 150px; /* Limita l'altezza */
+  object-fit: cover; 
+  display: block;
+  border-radius: 6px; 
+  
+  /* MARGINI CHIAVE per separare dal titolo e dal testo */
+  margin-top: 0.5rem; /* Spazio sotto il titolo <h4> */
+  margin-bottom: 1rem; /* Spazio sopra il paragrafo <p> */
+  margin-left: auto; /* Per centrare, anche se width: 100% lo copre */
+  margin-right: auto;
+}
 
 /* === COLONNA DESTRA (FORM) === */
 .contact-form {

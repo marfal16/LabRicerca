@@ -10,10 +10,21 @@ import member5 from "./assets/team/member5.jpeg";
 import member6 from "./assets/team/member6.jpeg";
 import member7 from "./assets/team/member7.jpeg";
 import pub1 from "./assets/pub1.jpg";
-import sfondo from "./assets/sfondo.jpg";
+import sfondo from "./assets/sfondo.png";
+import loc from "./assets/location.jpeg";
+import public1 from "./assets/public-1.jpeg";
+import public2 from "./assets/public-2.jpeg";
+import public3 from "./assets/public-3.jpeg";
+
+import about1 from "./assets/about1.jpeg";
+import about2 from "./assets/about2.jpeg";
+import about3 from "./assets/about3.jpeg";
+
 import Navbar from "./components/Navbar"; 
 import Footer from "./components/Footer";
 import ScrollToTop from './components/ScrollToTop';
+
+import { FaMapMarkerAlt, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 const latestPublications = [
   {
@@ -22,31 +33,34 @@ const latestPublications = [
     authors: "Petescia, Alessia; Benevento, Gerardo; Falanga, Anna; Macaro, Alessandro; Malandrino, Delfina; Montefusco, Alberto; Sorrentino, Rosalinda; Zaccagnino, Rocco",
     url: "https://hdl.handle.net/11386/4920232",
     doi: "10.1186/s12859-025-06257-3",
+    /*image: public1*/
   },
   {
     title: "Conventional Chemotherapy and Inflammation: What Is the Role of the Inflammasome in the Tumor Microenvironment?",
     year: 2025,
     authors: "Colarusso, Chiara; Terlizzi, Michela; Di Caprio, Simone; Falanga, Anna; D'Andria, Emmanuel; D'Emanuele Di Villa Bianca, Roberta; Sorrentino, Rosalinda",
     url: "https://hdl.handle.net/11386/4919535",
-    doi: "10.3390/biomedicines13010203"
+    doi: "10.3390/biomedicines13010203",
+    /*image: public2*/
   },
   {
     title: "Role of the AIM2 Inflammasome in Cancer: Potential Therapeutic Strategies",
     year: 2025,
     authors: "Colarusso, Chiara; Terlizzi, Michela; Di Caprio, Simone; Falanga, Anna; D'Andria, Emmanuel; D'Emanuele Di Villa Bianca, Roberta; Sorrentino, Rosalinda",
     url: "https://hdl.handle.net/11386/4919536",
-    doi: "10.3390/biomedicines13020395"
+    doi: "10.3390/biomedicines13020395",
+    /*image: public3*/
   }
 ];
 
 // --- Dati Progetti Aggiornati ---
 const researchProjects = [
-  "Identification of aim2 as a new drug target in lung cancer",
+  "Identification of AIM2 as a new drug target in lung cancer",
   "Fibrofarma – transcriptomic and proteomic profiling of patients with idiopathic pulmonary fibrosis and development of small molecules and innovative pharmaceutical formulations",
   "Spatial lung – digital platform for spatial biology on lung tissues: biobank and transcriptomic and proteomic analysis database",
   "Uncovering novel targets and pathways to enhance the efficacy of combination immunotherapy for lung cancer",
-  "Tissue microbiota remodeling during lung cancer progression: a fuel for immunosuppression via tregs induction",
-  "A basket study approach in preclinical drug development: the mtor pathway in glioblastoma multiforme (gbm) and in non-small-cell-lung-cancer (nsclc) tumor models."
+  "Tissue microbiota remodeling during lung cancer progression: a fuel for immunosuppression via T-regs induction",
+  "A basket study approach in preclinical drug development: the m-Tor pathway in glioblastoma multiforme (GBM) and in non-small-cell-lung-cancer (NSCLC) tumor models."
 ];
 //
 
@@ -90,7 +104,7 @@ const teamMembers = [
 
 // Definisci lo stile
 const heroStyle = {
-  backgroundImage: `url(${pub1})`,
+  backgroundImage: `url(${sfondo})`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -117,7 +131,7 @@ function HomePage() {
       }
     }
   }, [location.hash]); // Ricarica l'effetto ogni volta che l'hash cambia
-  
+
   return (
     <div className="App">
 
@@ -126,11 +140,11 @@ function HomePage() {
         <div className="hero-content">
           <h1>Rosalinda Sorrentino Lab</h1>
           <p>
-            Un centro dedicato alla ricerca, all’innovazione e alla formazione,
-            con collaborazioni accademiche e industriali di livello internazionale.
+            Where biology meets computational science  <br />
+            to translate immunological research into therapeutic innovation
           </p>
          </div>
-          <a href="#about" className="btn-scroll">Scopri di più </a>
+          <a href="#about" className="btn-scroll">Learn More</a>
 
       </section>
 
@@ -140,16 +154,25 @@ function HomePage() {
         <h2>About</h2>
         <div className="cards">
           <div className="card">
-            <h3>🔬 Ricerca sperimentale</h3>
-            <p>Progetti innovativi in laboratorio con strumenti di ultima generazione.</p>
+            <div className="card-image">
+                <img src={about1} alt="Preclinical Experimental Research" />
+            </div>
+            <h3>🔬 Preclinical Research</h3>
+            <p>We conduct both in vitro and in vivo studies using murine models to investigate immunotherapy mechanisms and immune checkpoint inhibitor resistance in Lung Cancer. </p>
           </div>
           <div className="card">
-            <h3>📊 Analisi dati</h3>
-            <p>Modellazione e interpretazione di dati scientifici complessi.</p>
+            <div className="card-image">
+                <img src={about2} alt="Multi-Omic Data Analysis and Artificial Intelligence" />
+            </div>
+            <h3>📊 Multi-Omic Data Analysis</h3>
+            <p>We integrate Multi-Omics approaches and AI to analyze high-throughput data such as Single-Cell RNA-seq and Spatial Transcriptomics-Proteomic in order to characterize Lung Cancer tumor microenvironment and pulmonary fibrosis.</p>
           </div>
           <div className="card">
-            <h3>🌍 Collaborazioni</h3>
-            <p>Partnership con università e centri di ricerca internazionali.</p>
+            <div className="card-image">
+                <img src={about3} alt="Clinical Collaborations and Research Networks" />
+            </div>
+            <h3>🌍 Collaborations and Research Networks</h3>
+            <p>We collaborate closely with clinicians, hospitals, and research institutes, fostering translational and interdisciplinary projects; in addiction we are active members of  international research initiatives, including COST Action IMMUNO-Model. </p>
           </div>
         </div>
       </section>
@@ -158,8 +181,8 @@ function HomePage() {
       <section id="team" className="section light">
         <h2>Meet our Team</h2>
           <p>
-            Our laboratory promotes interdisciplinary research involving researchers, PhD students, university students, and both academic and private partners worldwide. 
-            Our goal is to create innovation and knowledge in Lung Cancer Immunoncology and therapy with a real-world impact.
+            Our laboratory promotes interdisciplinary research involving Researchers, PhD students, University Students, and both Academic and Private partners worldwide. 
+            Our goal is to create innovation and knowledge in Lung Cancer ImmunOncology.
           </p>
           <div className="team-grid">
             {teamMembers.map((member, index) => (
@@ -174,7 +197,7 @@ function HomePage() {
 
       {/* PROJECTS */}
       <section id="projects" className="section light">
-        <h2>Projects</h2>
+        <h2>Our Projects</h2>
         <div className="projects">
           {/* PROJECTS */}
           {researchProjects.map((projectTitle, index) => (
@@ -187,7 +210,7 @@ function HomePage() {
     
 {/* PUBLICATIONS */}
 <section id="publications" className="section light">
-  <h2>Publications</h2>
+  <h2>Lastes Publications</h2>
 
   <div className="projects">
     {latestPublications.map((pub, idx) => (
@@ -223,27 +246,37 @@ function HomePage() {
   </Link>
 </section>
 
-
+{/* CONTACT */}
 <section id="contact" className="section contact">
-  <h2>Contact</h2>
+  <h2>Contacts</h2>
   <div className="contact-container">
     <div className="contact-info">
-  <div className="info-block">
-    <h4>Location</h4>
-    <p>
-      Department of Pharmacy, University of Salerno<br />
-      Fisciano Campus, Building F, Fourth Floor<br />
-      Room 068 (U.FSTEC-07.P04.068)
-    </p>
-  </div>
+<div className="info-block">
+  
+  {/* Intestazione (con icona) */}
+  <h4>
+    <FaMapMarkerAlt className="contact-icon" /> Location 
+  </h4>
+  
+  {/* Immagine di supporto, sotto il titolo e sopra il paragrafo */}
+  <img src={loc} alt="Mappa della location" className="location-support-image" />
+  
+  {/* Paragrafo dell'Indirizzo */}
+  <p>
+    Department of Pharmacy, University of Salerno<br />
+    Fisciano Campus, Building F, Fourth Floor<br />
+    Room 068 (U.FSTEC-07.P04.068)
+  </p>
+  
+</div>
 
   <div className="info-block">
-    <h4>Email</h4>
+    <h4><FaEnvelope className="contact-icon" /> Email</h4>
     <a href="mailto:rsorrentino@unisa.it">rsorrentino@unisa.it</a>
   </div>
 
   <div className="info-block">
-    <h4>LinkedIn</h4>
+    <h4><FaLinkedin className="contact-icon" /> LinkedIn</h4>
     <a
       href="https://www.linkedin.com/in/rosalinda-sorrentino-5780656b"
       target="_blank"
