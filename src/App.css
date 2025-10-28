@@ -136,7 +136,7 @@ body {
 
   /* POSIZIONAMENTO IN BASSO E CENTRO */
   position: absolute; /* Riferimento alla sezione .hero */
-  bottom: 5rem; /* Distanza dal fondo della sezione */
+  bottom: 8rem; /* Distanza dal fondo della sezione */
   z-index: 5
 }
 

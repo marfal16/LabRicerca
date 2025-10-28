@@ -99,6 +99,25 @@ const heroStyle = {
 
 function HomePage() {
 
+  const location = useLocation();
+
+  useEffect(() => {
+    // 1. Controlla se l'URL contiene un hash (es. #contact)
+    if (location.hash) {
+      // 2. Rimuovi il '#' per ottenere l'ID (es. 'contact')
+      const id = location.hash.substring(1); 
+      const element = document.getElementById(id);
+
+      // 3. Esegui lo scroll se l'elemento esiste
+      if (element) {
+        // Un piccolo timeout è utile per assicurare che il rendering sia completato
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100); 
+      }
+    }
+  }, [location.hash]); // Ricarica l'effetto ogni volta che l'hash cambia
+  
   return (
     <div className="App">
 

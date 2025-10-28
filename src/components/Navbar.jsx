@@ -21,15 +21,7 @@ export default function Navbar() {
   // Gestione click link
   const handleLinkClick = (hash) => {
     setMenuOpen(false);
-
-    if (location.pathname !== "/") {
-      // Se non siamo in home, torniamo in home con hash
-      navigate(`/#${hash}`);
-    } else {
-      // Se siamo in home, scrolliamo all'elemento
-      const element = document.getElementById(hash);
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }
+    navigate(`/#${hash}`);
   };
 
   return (
