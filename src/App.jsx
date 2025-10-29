@@ -145,7 +145,7 @@ function HomePage() {
             to translate immunological research into therapeutic innovation
           </p>
         </div>
-        <a href="#about" className="btn-scroll">Learn More</a>
+        <a href="#about" className="btn-scroll">Discover More</a>
       </section>
 
       {/* HOME */}
