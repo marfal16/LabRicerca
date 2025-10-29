@@ -83,7 +83,8 @@
 .publication-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-left-color: #ff7f50; /* solo accento leggero sull’hover */
+  border-left-color: #ff7f50;
+  /* solo accento leggero sull’hover */
 }
 
 .publication-item strong {
@@ -109,7 +110,8 @@
 }
 
 .publication-item a:hover {
-  color: #ff7f50; /* accento solo qui */
+  color: #ff7f50;
+  /* accento solo qui */
   text-decoration: underline;
 }
 

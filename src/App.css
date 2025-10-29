@@ -1,5 +1,3 @@
-
-
 #root {
   width: 100%;
   min-height: 100vh;
@@ -37,7 +35,7 @@ body {
 
 /* colore iniziale, trasparente o blu */
 .navbar {
-  background: rgba(10, 20, 50, 0.9); 
+  background: rgba(10, 20, 50, 0.9);
   color: #fff;
   backdrop-filter: blur(8px);
 }
@@ -45,28 +43,27 @@ body {
 /* scorrendo, puoi cambiare background se vuoi */
 .navbar.scrolled {
   background: #fff;
-  color: #002855; /* testo scuro su sfondo chiaro */
+  color: #002855;
 }
 
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
-    display: flex; 
-  align-items: center; /* Centra verticalmente logo e testo */
-  gap: 0.5rem; /* Aggiunge un piccolo spazio tra logo e testo */
-  font-size: 1.5rem; /* Stile del testo "RS Lab" */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
-    background-color: transparent;
+  background-color: transparent;
+  color: inherit;
 }
 
 .navbar-logo-icon {
-  /* Imposta una dimensione fissa e piccola per il logo */
-  width: 42px; /* Larghezza adeguata per un logo in navbar */
-  height: 42px; /* Altezza adeguata per un logo in navbar */
+  width: 25px;
+  height: 25px;
   background-color: transparent;
-  /* Assicura che l'immagine si adatti bene */
-  object-fit: contain; 
+  object-fit: contain;
 }
 
 .nav-links {
@@ -92,6 +89,13 @@ body {
   cursor: pointer;
 }
 
+.nav-logo a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 
 /* HERO */
 .hero {
@@ -114,17 +118,16 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  /* Colore overlay: qui è nero semi-trasparente (40% di opacità) */
-  background-color: rgba(41, 41, 41, 0.516); 
-  z-index: 1; /* Posiziona l'overlay tra lo sfondo e il testo */
+  background-color: rgba(41, 41, 41, 0.516);
+  z-index: 1;
 }
 
 .hero-content h1 {
-  position: relative; 
+  position: relative;
   z-index: 2;
   font-size: 3rem;
   margin-bottom: 1rem;
-   color: white;
+  color: white;
 }
 
 .hero-content p {
@@ -133,7 +136,7 @@ body {
   margin: 0 auto 2rem auto;
   line-height: 1.6;
   color: white;
-    position: relative; 
+  position: relative;
   z-index: 2;
 }
 
@@ -145,19 +148,17 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: background 0.3s, transform 0.2s;
-  margin-top: 1.5rem; 
-  display: inline-block; 
+  margin-top: 1.5rem;
+  display: inline-block;
   position: relative;
-
-  /* POSIZIONAMENTO IN BASSO E CENTRO */
-  position: absolute; /* Riferimento alla sezione .hero */
-  bottom: 8rem; /* Distanza dal fondo della sezione */
+  position: absolute;
+  bottom: 8rem;
   z-index: 5
 }
 
 .btn-scroll:hover {
   background-color: #ff9966;
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -168,15 +169,15 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: background 0.3s, transform 0.2s;
-  margin-top: 1.5rem; 
-  display: inline-block; 
+  margin-top: 1.5rem;
+  display: inline-block;
   position: relative;
   z-index: 5
 }
 
 .btn-primary:hover {
   background-color: #ff9966;
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 /* SEZIONI */
@@ -214,7 +215,7 @@ body {
   background: #fff;
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
   padding: 0
@@ -222,35 +223,97 @@ body {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card p {
-
   padding-top: 0;
-  color: #333333; /* Un nero molto scuro per un ottimo contrasto */
+  color: #333333;
 }
 
 .card h3 {
-  padding-top: 1.5rem; /* Aggiungi un po' di spazio tra l'immagine e il titolo */
+  padding-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .card-image {
-  /* Definisci un'altezza fissa o limitata per l'area dell'immagine */
-  height: 140px; 
+  height: 180px;
   overflow: hidden;
-  /* Arrotonda solo gli angoli superiori */
-  border-radius: 12px 12px 0 0; 
+  border-radius: 12px 12px 12px 12px;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
-  /* Assicura che l'immagine copra l'area senza deformarsi */
-  object-fit: cover; 
-  display: block;
+  object-fit: cover;
+  border-radius: inherit;
 }
+
+/* ---  --- */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002855;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Griglia 3x2 minimal più compatta */
+.projects-grid-minimal {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* colonne flessibili */
+  gap: 1.5rem; /* spazio ridotto tra le card */
+  max-width: 1100px; /* riduce la larghezza totale della griglia */
+  margin: 0 auto; /* centra la griglia */
+}
+
+
+.projects-card-minimal {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-left: 4px solid #002855; /* bordo blu scuro */
+  transition: border-left 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.projects-card-minimal:hover {
+  border-left: 4px solid #ff7f50; /* diventa arancione al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.projects-img-minimal {
+  width: 100%;
+  height: 130px; /* leggermente più compatta */
+  object-fit: cover;
+}
+
+.projects-text-minimal {
+  padding: 0.8rem 1rem; /* padding leggermente ridotto */
+  font-size: 0.95rem;
+  color: #002855;
+  font-weight: 600;
+  /* testo stabile: niente transizioni sul testo */
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .projects-grid-minimal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-grid-minimal {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
 /* --- PROJECTS SECTION --- */
 #projects {
   background: linear-gradient(135deg, #f8fafc, #eef3f8);
@@ -297,7 +360,8 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  user-select: text !important; /* Forza la selezione del testo */
+  user-select: text !important;
+  /* Forza la selezione del testo */
   -webkit-user-select: text !important;
   -moz-user-select: text !important;
 }
@@ -351,6 +415,7 @@ body {
   color: #002b66;
   text-decoration: underline;
 }
+
 
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
@@ -439,7 +504,6 @@ body {
 
 .info-block {
   margin-bottom: 1.5rem;
-
   padding-left: 1rem;
 }
 
@@ -461,19 +525,15 @@ body {
 }
 
 /* --- LAYOUT LOCATION --- */
-
 .location-support-image {
-  /* Larghezza massima all'interno del blocco info */
-  width: 100%; 
-  max-height: 150px; /* Limita l'altezza */
-  object-fit: cover; 
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
   display: block;
-  border-radius: 6px; 
-  
-  /* MARGINI CHIAVE per separare dal titolo e dal testo */
-  margin-top: 0.5rem; /* Spazio sotto il titolo <h4> */
-  margin-bottom: 1rem; /* Spazio sopra il paragrafo <p> */
-  margin-left: auto; /* Per centrare, anche se width: 100% lo copre */
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -483,7 +543,7 @@ body {
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
   background: rgba(255, 255, 255, 0.07);
   border-radius: 12px;
@@ -492,10 +552,10 @@ body {
 }
 
 .contact-form h3 {
-  color: #fff;
-  font-size: 1.6rem;
+  color: #ff9966;
+  font-size: 1 rem;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   letter-spacing: 0.5px;
 }
 
@@ -539,6 +599,21 @@ body {
   background-color: #ff9966;
   transform: translateY(-2px);
 }
+
+.contact-info-row {
+  display: flex;
+  justify-content: space-between; /* uno a sinistra e uno a destra */
+  gap: 2rem; /* distanza tra i due blocchi */
+  flex-wrap: wrap; /* si adatta a schermi piccoli */
+}
+
+.contact-info-row .info-block {
+  flex: 1; /* entrambi occupano metà larghezza ciascuno */
+  min-width: 200px; /* evita che diventino troppo stretti */
+  margin-bottom: 1rem;
+  padding-left: 0; /* rimuoviamo il padding-left per allineare */
+}
+
 
 /* === MOBILE === */
 @media (max-width: 768px) {
@@ -626,23 +701,23 @@ body {
 /* Mobile */
 @media (max-width: 768px) {
   .nav-links {
-    position: fixed;       /* Fisso sul viewport */
+    position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;         /* Occupa tutto lo schermo */
+    height: 100vh;
     width: 250px;
-    background: rgba(10,20,50,0.95);
+    background: rgba(10, 20, 50, 0.95);
     flex-direction: column;
     padding: 2rem 1rem;
-    transform: translateX(100%); /* Nascondi fuori schermo */
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     box-sizing: border-box;
     z-index: 9999;
-    overflow-y: auto;      /* Scorrimento verticale se necessario */
+    overflow-y: auto;
   }
 
   .nav-links.active {
-    transform: translateX(0);   /* Menu visibile */
+    transform: translateX(0);
   }
 
   .nav-links li {
@@ -656,7 +731,7 @@ body {
 
 @media (max-width: 400px) {
   .nav-links {
-    width: 80%; /* menu occupa quasi tutto lo schermo */
+    width: 80%;
     padding: 2rem 0.8rem;
   }
 

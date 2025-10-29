@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from '../assets/logo.png';
+// import logo from '../assets/logo.png';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,15 +27,20 @@ export default function Navbar() {
 
   return (
     <nav className="navbar" ref={navRef}>
-      <div className="nav-logo"><img src={logo} alt="RS Lab Logo" className="navbar-logo-icon" /> 
-      RS Lab</div>
+      <div className="nav-logo">
+        <a href="#home" onClick={() => handleLinkClick("home")}>
+          <img src="/logo.svg" alt="RS Lab Logo" className="navbar-logo-icon" />
+          RS Lab
+        </a>
+      </div>
+
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
         <li><a href="#home" onClick={() => handleLinkClick("home")}>Home</a></li>
         <li><a href="#about" onClick={() => handleLinkClick("about")}>About</a></li>
         <li><a href="#team" onClick={() => handleLinkClick("team")}>Team</a></li>
         <li><a href="#projects" onClick={() => handleLinkClick("projects")}>Projects</a></li>
         <li><a href="#publications" onClick={() => handleLinkClick("publications")}>Publications</a></li>
-        <li><a href="#contact" onClick={() => handleLinkClick("contact")}>Contact</a></li>
+        <li><a href="#contact" onClick={() => handleLinkClick("contact")}>Contacts</a></li>
       </ul>
       <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         ☰

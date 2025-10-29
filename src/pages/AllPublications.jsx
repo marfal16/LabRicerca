@@ -652,8 +652,6 @@ export default function AllPublications() {
   }, {});
 
   const years = Object.keys(publicationsByYear).sort((a, b) => b - a);
-
-  // 👇 Stato per l’anno selezionato
   const [selectedYear, setSelectedYear] = useState("All");
 
   const filteredYears =
