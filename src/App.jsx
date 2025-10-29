@@ -213,7 +213,7 @@ function HomePage() {
 
       {/* PUBLICATIONS */}
       <section id="publications" className="section light">
-        <h2>Lastes Publications</h2>
+        <h2>Latest Publications</h2>
         <div className="projects">
           {latestPublications.map((pub, idx) => (
             <div className="project" key={idx}>
